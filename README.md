@@ -54,8 +54,8 @@ This project demonstrates the end-to-end deployment, configuration, and operatio
   * **Rule `5503` (Level 5):** *PAM: User login failed*
   * **Parsed IOCs:** Extracted `data.srcip` (source attacker IP), `data.srcuser` (`admin_test`), and mapped compliance controls (`PCI-DSS`, `HIPAA`).
 * * **Alert Evidence:**
+    * ![Ubuntu SSH JSON Telemetry](images/ubuntuagent1.png)
   * ![Ubuntu SSH Brute Force Table](images/ubuntuagent.png)
-  * ![Ubuntu SSH JSON Telemetry](images/ubuntuagent1.png)
 
 * **Remediation & Defense:**
   * Enforce SSH key-based authentication (`PasswordAuthentication no` in `/etc/ssh/sshd_config`).
