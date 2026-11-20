@@ -53,9 +53,10 @@ This project demonstrates the end-to-end deployment, configuration, and operatio
   * **Rule `5710` (Level 5):** *sshd: Attempt to login using a non-existent user*
   * **Rule `5503` (Level 5):** *PAM: User login failed*
   * **Parsed IOCs:** Extracted `data.srcip` (source attacker IP), `data.srcuser` (`admin_test`), and mapped compliance controls (`PCI-DSS`, `HIPAA`).
-* **Alert Evidence:**
-  * ![Ubuntu SSH Brute Force Table](images/ubuntu-ssh-bruteforce.png)
-  * ![Ubuntu SSH JSON Telemetry](images/ubuntu-ssh-json.png)
+* * **Alert Evidence:**
+  * ![Ubuntu SSH Brute Force Table](images/ubuntuagent.png)
+  * ![Ubuntu SSH JSON Telemetry](images/ubuntuagent1.png)
+
 * **Remediation & Defense:**
   * Enforce SSH key-based authentication (`PasswordAuthentication no` in `/etc/ssh/sshd_config`).
   * Enable Wazuh **Active Response** (`firewall-drop`) on brute-force threshold rules to automatically block offending source IPs at the host firewall.
@@ -70,9 +71,10 @@ This project demonstrates the end-to-end deployment, configuration, and operatio
 * **SOC Triage Analysis:**
   * Inspecting the parsed event payload (`win.eventdata.targetUserName`) revealed that the deleted account was `defaultuser0`—a built-in temporary provisioning account automatically removed by Windows 11 following initial Out-of-Box Experience (OOBE) setup.
   * Documented as **Benign True Positive / Expected Provisioning Activity**, demonstrating how field-level JSON inspection prevents unnecessary alert escalation.
-* **Alert Evidence:**
-  * ![Windows Account Alert Table](images/windows-account-alert.png)
-  * ![Windows Account JSON Details](images/windows-account-json.png)
+* * **Alert Evidence:**
+  * ![Windows Account Alert Table](images/windowsagent.png)
+  * ![Windows Account JSON Details](images/windowsjson.png)
+
 * **Remediation & Defense:**
   * Restrict local Administrator group membership via Group Policy / Least Privilege.
   * Configure custom child rules in `local_rules.xml` to suppress expected `defaultuser0` cleanup events while escalating any non-standard local account additions (`Event ID 4720`) to Level 12+.
