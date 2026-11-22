@@ -1,0 +1,70 @@
+# ==========================================
+# 1. WAZUH SECRETS, KEYS & INTERNAL STATE
+# ==========================================
+client.keys
+sslmanager.cert
+sslmanager.key
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# Wazuh raw alert dumps, queues & archives
+alerts.json
+alerts.log
+archives.json
+archives.log
+ossec.log
+integrations.log
+active-responses.log
+
+# ==========================================
+# 2. API TOKENS, CREDENTIALS & ENV FILES
+# ==========================================
+.env
+.env.*
+*.env
+*secret*
+*token*
+*credential*
+*apikey*
+*api_key*
+
+# ==========================================
+# 3. n8n, DOCKER & PYTHON RUNTIME ARTIFACTS
+# ==========================================
+n8n_data/
+.n8n/
+docker-compose.override.yml
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# ==========================================
+# 4. ATTACK LAB ARTIFACTS & PCAPS
+# ==========================================
+*.hash
+*.ntds
+*.dit
+*.pcap
+*.pcapng
+*.cap
+*.evtx
+users.txt
+passwords.txt
+
+# ==========================================
+# 5. OS & IDE CLUTTER
+# ==========================================
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
